@@ -112,6 +112,27 @@ Operators are special symbols that perform operations on variables and values.
 
 *   **4.4 Precedence**: The order in which operators are evaluated (e.g., `*` and `/` before `+` and `-`).
 
+### Java Operator Precedence Chart
+
+This chart lists Java operators from highest to lowest precedence. Operators on the same line have equal precedence.
+
+| Precedence | Operator                  | Description                               | Associativity |
+| :--------: | :------------------------ | :---------------------------------------- | :-----------: |
+| 15         | `()` `[]` `.`             | Parentheses, Array Subscript, Member Access | L → R         |
+| 14         | `++` `--` `+` `-` `!` `~` | Unary, Logical NOT, Bitwise NOT           | R → L         |
+| 13         | `*` `/` `%`               | Multiplicative                            | L → R         |
+| 12         | `+` `-`                   | Additive                                  | L → R         |
+| 11         | `<<` `>>` `>>>`           | Bitwise Shift                             | L → R         |
+| 10         | `<` `<=` `>` `>=` `instanceof` | Relational                                | L → R         |
+| 9          | `==` `!=`                 | Equality                                  | L → R         |
+| 8          | `&`                       | Bitwise AND                               | L → R         |
+| 7          | `^`                       | Bitwise XOR                               | L → R         |
+| 6          | `|`                       | Bitwise OR                                | L → R         |
+| 5          | `&&`                      | Logical AND                               | L → R         |
+| 4          | `||`                      | Logical OR                                | L → R         |
+| 3          | `?:`                      | Ternary Conditional                       | R → L         |
+| 2          | `=` `+=` `-=` `*=` `/=` `%=` | Assignment                                | R → L         |
+
 *   **Code Examples**:
     *   [`ArithmeticOperators.java`](Chapter4_Operators/ArithmeticOperators.java)
     *   [`RelationalLogicalOperators.java`](Chapter4_Operators/RelationalLogicalOperators.java)

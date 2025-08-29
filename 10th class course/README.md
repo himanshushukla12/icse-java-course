@@ -101,4 +101,39 @@ The `AccessSpecifierDemo` in Chapter 7 depends on files in the `company` sub-pac
     ```
 
 ---
+
+## Java Operator Precedence
+
+This chart lists Java operators from highest to lowest precedence. Operators on the same line have equal precedence and are evaluated based on their associativity.
+
+| Precedence | Operator                  | Description                               | Associativity |
+| :--------: | :------------------------ | :---------------------------------------- | :-----------: |
+| 15         | `()` `[]` `.`             | Parentheses, Array Subscript, Member Access | L → R         |
+| 14         | `++` `--` `+` `-` `!` `~` | Unary, Logical NOT, Bitwise NOT           | R → L         |
+| 13         | `*` `/` `%`               | Multiplicative                            | L → R         |
+| 12         | `+` `-`                   | Additive                                  | L → R         |
+| 11         | `<<` `>>` `>>>`           | Bitwise Shift                             | L → R         |
+| 10         | `<` `<=` `>` `>=` `instanceof` | Relational                                | L → R         |
+| 9          | `==` `!=`                 | Equality                                  | L → R         |
+| 8          | `&`                       | Bitwise AND                               | L → R         |
+| 7          | `^`                       | Bitwise XOR                               | L → R         |
+| 6          | `|`                       | Bitwise OR                                | L → R         |
+| 5          | `&&`                      | Logical AND                               | L → R         |
+| 4          | `||`                      | Logical OR                                | L → R         |
+| 3          | `?:`                      | Ternary Conditional                       | R → L         |
+| 2          | `=` `+=` `-=` `*=` `/=` `%=` | Assignment                                | R → L         |
+
+---
+
+## Chapters
+
+*   **[Chapter 3: Objects and Classes](Java10thNotes.md#chapter-3-objects-and-classes)**
+*   **[Chapter 4: User-defined Methods](Java10thNotes.md#chapter-4-user-defined-methods)**
+*   **[Chapter 5: Constructors](Java10thNotes.md#chapter-5-constructors)**
+*   **[Chapter 6: Library Classes](Java10thNotes.md#chapter-6-library-classes)**
+*   **[Chapter 7: Encapsulation](Java10thNotes.md#chapter-7-encapsulation)**
+*   **[Chapter 8: Arrays](Java10thNotes.md#chapter-8-arrays)**
+*   **[Chapter 9: String Handling](Java10thNotes.md#chapter-9-string-handling)**
+
+---
 This project is designed to be a one-stop resource for your Class 10 Java studies. Happy coding!
