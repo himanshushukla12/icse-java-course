@@ -12,6 +12,7 @@ Welcome to your comprehensive Java learning guide! This document covers all esse
 5. [Chapter 7: Encapsulation](#chapter-7-encapsulation)
 6. [Chapter 8: Arrays](#chapter-8-arrays)
 7. [Chapter 9: String Handling](#chapter-9-string-handling)
+8. [Chapter 10: Inheritance](#chapter-10-inheritance)
 
 ---
 
@@ -747,6 +748,35 @@ Calculating rectangle area
 Rectangle area: 150.0
 Calculating triangle area
 Triangle area: 24.0
+```
+
+### 🔁 Loop Conversion
+
+Understanding how to convert one type of loop into another is a common requirement. It demonstrates a strong grasp of loop mechanics.
+
+#### `do-while` to `for` loop
+
+Let's convert a `do-while` loop that prints numbers from 9 down to 0.
+
+**Original `do-while` loop:**
+```java
+int x = 10;
+do {
+    x--;
+    System.out.print(x + " ");
+} while (x > 0);
+// Output: 9 8 7 6 5 4 3 2 1 0 
+```
+
+**Equivalent `for` loop:**
+The initialization (`int x = 10`), condition (`x > 0`), and update (`x--`) are moved into the `for` loop structure. Note that the action `x--` happens *before* the print statement in the original loop, so we adjust the `for` loop to match.
+
+```java
+// We start from 9 and go down to 0
+for (int i = 9; i >= 0; i--) {
+    System.out.print(i + " ");
+}
+// Output: 9 8 7 6 5 4 3 2 1 0
 ```
 
 ---
@@ -2569,3 +2599,114 @@ Joined sentence: Alice, Bob, Charlie, David, Eve
 ```
 
 ---
+
+## Chapter 10: Inheritance
+
+### 🎯 What is Inheritance?
+
+Inheritance is one of the key pillars of Object-Oriented Programming (OOP). It is a mechanism where a new class (called a **subclass** or **derived class**) acquires the properties (fields) and behaviors (methods) of an existing class (called a **superclass** or **base class**).
+
+The primary purpose of inheritance is **code reusability**. You can create a general class and then create more specialized classes that inherit from it, adding or modifying functionality as needed. The relationship is often described as an "**is-a**" relationship (e.g., a `Manager` **is-a** type of `Employee`).
+
+In Java, inheritance is implemented using the `extends` keyword.
+
+### 📖 Key Concepts
+
+- **Superclass (Parent):** The class whose features are inherited.
+- **Subclass (Child):** The class that inherits from another class.
+- **`extends` keyword:** Used to establish the inheritance relationship.
+- **Code Reusability:** Write code once in the superclass and reuse it across multiple subclasses.
+
+### 💻 Basic Inheritance Example
+
+Let's model a simple hierarchy: `Vehicle` is a general class, and `Car` is a specific type of `Vehicle`.
+
+```java
+// Superclass (Parent)
+class Vehicle {
+    String brand;
+    int year;
+
+    public Vehicle(String brand, int year) {
+        System.out.println("Vehicle constructor called.");
+        this.brand = brand;
+        this.year = year;
+    }
+
+    void start() {
+        System.out.println("The vehicle's engine starts.");
+    }
+
+    void displayInfo() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Year: " + year);
+    }
+}
+
+// Subclass (Child) - inherits from Vehicle
+class Car extends Vehicle {
+    String model;
+    int numberOfDoors;
+
+    public Car(String brand, int year, String model, int doors) {
+        // Call the superclass constructor using super()
+        // This MUST be the first statement in the constructor
+        super(brand, year); 
+        System.out.println("Car constructor called.");
+        this.model = model;
+        this.numberOfDoors = doors;
+    }
+
+    // Method overriding: Providing a specific implementation for a method
+    // that is already defined in the superclass.
+    @Override
+    void start() {
+        System.out.println("The car's ignition turns on.");
+    }
+
+    // New method specific to the Car class
+    void openTrunk() {
+        System.out.println("The trunk is open.");
+    }
+
+    // Overriding the displayInfo method to add more details
+    @Override
+    void displayInfo() {
+        super.displayInfo(); // Call the superclass's method to display brand and year
+        System.out.println("Model: " + model);
+        System.out.println("Number of Doors: " + numberOfDoors);
+    }
+}
+
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        // Create an object of the subclass
+        Car myCar = new Car("Toyota", 2023, "Camry", 4);
+
+        System.out.println("\n--- Calling Methods ---");
+        
+        // Calling methods
+        myCar.start(); // Calls the overridden method in Car
+        myCar.openTrunk(); // Calls the method from Car
+        
+        System.out.println("\n--- Displaying Info ---");
+        myCar.displayInfo(); // Calls the overridden displayInfo method
+    }
+}
+```
+
+**Sample Output:**
+```
+Vehicle constructor called.
+Car constructor called.
+
+--- Calling Methods ---
+The car's ignition turns on.
+The trunk is open.
+
+--- Displaying Info ---
+Brand: Toyota
+Year: 2023
+Model: Camry
+Number of Doors: 4
+```
