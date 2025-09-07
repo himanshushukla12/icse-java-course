@@ -56,7 +56,7 @@ Once the JDK is installed, you can compile and run the example files from the te
 
 2.  **Navigate to the Project Directory**: Use the `cd` command to go to the root of this project.
     ```sh
-    cd "E:\JAVA 10th"
+    cd "icse-java-course"
     ```
 
 3.  **Compile a Java File**:
