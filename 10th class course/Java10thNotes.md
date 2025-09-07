@@ -305,6 +305,67 @@ Account Balance: $1300.0
 Invalid withdrawal amount or insufficient funds!
 ```
 
+### 🙈 Abstraction
+
+**Abstraction** is the concept of hiding complex implementation details and showing only the essential features of the object. It helps in managing complexity by focusing on what an object does instead of how it does it.
+
+Think about a car. You, as the driver, know how to use the steering wheel, accelerator, and brakes (the essential features). You don't need to know the complex details of the engine, transmission, or how the brakes work internally (the hidden implementation).
+
+In Java, abstraction is achieved using **abstract classes** and **interfaces**.
+
+#### Abstract Class Example
+
+An abstract class is a restricted class that cannot be used to create objects (to instantiate it, you must inherit from it). An abstract method can only be used in an abstract class, and it does not have a body. The body is provided by the subclass.
+
+```java
+// abstract class
+abstract class Shape {
+    // abstract method (does not have a body)
+    public abstract void draw();
+    
+    // regular method
+    public void display() {
+        System.out.println("This is a shape.");
+    }
+}
+
+// Subclass (inherit from Shape)
+class Rectangle extends Shape {
+    // Provide body for the abstract method
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+class Circle extends Shape {
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+public class AbstractionDemo {
+    public static void main(String[] args) {
+        // We cannot create an object of the Shape class, e.g., new Shape() is not allowed.
+        
+        Rectangle rect = new Rectangle();
+        rect.draw();
+        rect.display();
+
+        Circle circ = new Circle();
+        circ.draw();
+        circ.display();
+    }
+}
+```
+
+**Sample Output:**
+```
+Drawing a rectangle
+This is a shape.
+Drawing a circle
+This is a shape.
+```
+
 ---
 
 ## Chapter 4: User-defined Methods
@@ -2360,6 +2421,8 @@ public class DoubleDimArrayDemo {
 
 Element at row 1, column 2: 6
 Modified element at row 0, column 0: 99
+
+
 
 === Jagged 2D Array ===
 1 2 
